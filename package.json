@@ -1,18 +1,27 @@
 {
-  "name": "weblighthousecheck",
-  "version": "1.0.0",
-  "description": "Lighthouse score check for website",
+  "name": "web-lighthouse-checker",
+  "version": "1.1.0",
+  "description": "A Node.js tool to run Lighthouse audits on multiple URLs and generate JSON, HTML, and CSV reports.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "type": "module",
-  "keywords": [
-    "lighthouse",
-    "website"
-  ],
   "author": "Riyaz Panarwala",
   "license": "ISC",
+  "scripts": {
+    "start": "node index.js",
+    "clean": "rm -rf reports lighthouse-results.csv",
+    "prepare-folders": "mkdir -p reports",
+    "test": "echo \"No tests configured\""
+  },
+  "keywords": [
+    "lighthouse",
+    "seo",
+    "performance",
+    "accessibility",
+    "best-practices",
+    "web-audit",
+    "nodejs",
+    "automation"
+  ],
   "dependencies": {
     "chrome-launcher": "^1.2.1",
     "lighthouse": "^13.0.1"
