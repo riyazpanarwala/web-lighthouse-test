@@ -36,7 +36,7 @@ It generates **HTML reports**, **JSON reports**, and a combined **CSV summary** 
 ### 1. Install dependencies
 
 ```bash
-npm install lighthouse chrome-launcher
+npm install
 ```
 
 ### 2. Add URLs
@@ -85,18 +85,6 @@ reports/
 
 ---
 
-## Batch Processing
-
-The script runs URLs in batches:
-
-```js
-runInBatches(urls, 5); // 5 URLs at a time
-```
-
-You can change the batch size depending on CPU/RAM.
-
----
-
 ## Configurations Used
 
 - Desktop mode
@@ -107,12 +95,3 @@ You can change the batch size depending on CPU/RAM.
   - Accessibility
   - Best Practices
   - SEO
-
-## Result
-
-After running:
-
-```
-✔ Done! HTML + JSON reports saved.
-✔ CSV saved as lighthouse-results.csv
-```

@@ -8,9 +8,8 @@
   "license": "ISC",
   "scripts": {
     "start": "node index.js",
-    "clean": "rm -rf reports lighthouse-results.csv",
-    "prepare-folders": "mkdir -p reports",
-    "test": "echo \"No tests configured\""
+	"test": "node index.js --retries 3 --urls urls.txt",
+    "clean": "rm -rf reports lighthouse-results.csv"
   },
   "keywords": [
     "lighthouse",
@@ -24,6 +23,7 @@
   ],
   "dependencies": {
     "chrome-launcher": "^1.2.1",
+    "commander": "^14.0.2",
     "lighthouse": "^13.0.1"
   }
 }
