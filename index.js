@@ -12,14 +12,24 @@ program
   .parse();
 
 const options = program.opts();
-const retries = parseInt(options.retries);
-const timeout = parseInt(options.timeout);
+const retries = parseInt(options.retries, 10);
+const timeout = parseInt(options.timeout, 10);
+
+if (isNaN(retries) || retries < 0) {
+  console.error("Invalid retries value. Must be a non-negative integer.");
+  process.exit(1);
+}
+
+if (isNaN(timeout) || timeout <= 0) {
+  console.error("Invalid timeout value. Must be a positive integer.");
+  process.exit(1);
+}
 
 // Load URLs
 function loadUrls() {
   let urlList = [];
   
-  if (!fs.existsSync(options.urls)) {
+  if (fs.existsSync(options.urls)) {
     urlList = fs
       .readFileSync(options.urls, "utf-8")
       .split("\n")
@@ -32,8 +42,7 @@ function loadUrls() {
   }
 
   const defaultUrls = [
-    "https://ascenten.net/culture.html",
-    "https://ascenten.net/affirmative-action-policy.html",
+    "https://www.google.com"
   ];
    
   return urlList.length ? urlList : defaultUrls;
@@ -216,7 +225,7 @@ async function runAllTests(urls) {
 function generateCSV(results) {
   const header = "URL,Performance,Accessibility,BestPractices,SEO,Error";
   const rows = results.map(r => 
-    `"${r.url}",${r.Performance || ""},${r.Accessibility || ""},${r.BestPractices || ""},${r.SEO || ""},"${r.error || ""}"`
+    `"${r.url}",${r.Performance || ""},${r.Accessibility || ""},${r.BestPractices || ""},${r.SEO || ""},"${(r.error || "").replace(/"/g, '""')}"`
   );
   
   const filename = `${options.output}.csv`;
