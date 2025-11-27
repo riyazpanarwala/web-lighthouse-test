@@ -140,3 +140,4 @@ vite.config.ts.timestamp-*
 
 /reports
 urls.txt
+lighthouse-results.csv
