@@ -1,0 +1,20 @@
+{
+  "name": "weblighthousecheck",
+  "version": "1.0.0",
+  "description": "Lighthouse score check for website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [
+    "lighthouse",
+    "website"
+  ],
+  "author": "Riyaz Panarwala",
+  "license": "ISC",
+  "dependencies": {
+    "chrome-launcher": "^1.2.1",
+    "lighthouse": "^13.0.1"
+  }
+}
